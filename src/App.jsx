@@ -15,7 +15,7 @@ function App() {
     fetch("https://fakestoreapi.com/products")
       .then((reponse) => reponse.json())
       .then((data) => {
-        console.log(data)
+        // console.log(data) ; 
         setProducts(data);
         setStatus(false);
       })
@@ -39,11 +39,11 @@ function App() {
           : (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {products.map((product) => {
-                <ProductCard key={product.id} product={product} />
+                return <ProductCard key={product.id} product={product} />
               })}
             </div>
           )}
-        </main>{" "}
+        </main>
       </div>
     </>
   );

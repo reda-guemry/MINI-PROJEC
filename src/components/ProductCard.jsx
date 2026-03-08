@@ -1,7 +1,5 @@
-
-
-
 function ProductCard({ product }) {
+//   console.log(product);
   return (
     <div className="bg-white p-4 rounded-lg shadow-md border flex flex-col items-center hover:shadow-xl transition-shadow duration-300">
       <img
@@ -28,5 +26,4 @@ function ProductCard({ product }) {
   );
 }
 
-
-export default ProductCard 
+export default ProductCard;
