@@ -1,16 +1,20 @@
+import { Link } from "react-router-dom";
+
 function ProductCard({ product }) {
-//   console.log(product);
+  //   console.log(product);
   return (
     <div className="bg-white p-4 rounded-lg shadow-md border flex flex-col items-center hover:shadow-xl transition-shadow duration-300">
-      <img
-        src={product.image}
-        alt={product.title}
-        className="h-40 object-contain mb-4"
-      />
+      <Link to={`/product/${product.id}`} className="w-full flex flex-col items-center cursor-pointer" >
+        <img
+          src={product.image}
+          alt={product.title}
+          className="h-40 object-contain mb-4"
+        />
 
-      <h3 className="font-bold text-lg w-full truncate" title={product.title}>
-        {product.title}
-      </h3>
+        <h3 className="font-bold text-lg w-full truncate" title={product.title}>
+          {product.title}
+        </h3>
+      </Link>
 
       <p className="text-gray-500 text-sm w-full truncate mb-2">
         {product.category}
