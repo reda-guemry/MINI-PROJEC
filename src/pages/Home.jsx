@@ -7,6 +7,7 @@ function Home() {
 
   const [status, setStatus] = useState(true);
 
+  
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((reponse) => reponse.json())

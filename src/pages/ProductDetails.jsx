@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState , useContext} from "react";
 import { data, Link, useParams } from "react-router-dom";
+import { CardContext } from "../context/CartContext";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -10,6 +11,11 @@ function ProductDetails() {
   const [product, setProduct] = useState(null);
   const [status, setStatus] = useState(true);
 
+  const { addTocart , cart  } = useContext( CardContext ) ; 
+
+  console.log(cart);
+  
+  
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`)
       .then((reponse) => reponse.json())
@@ -50,7 +56,7 @@ function ProductDetails() {
             </div>
 
             <div className="flex gap-4">
-              <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 w-full md:w-auto">
+              <button onClick={() => addTocart(product)} className="bg-blue-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 w-full md:w-auto">
                 Add to Cart
               </button>
 
